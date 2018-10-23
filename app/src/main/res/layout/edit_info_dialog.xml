@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/themeBackground"
+    android:orientation="vertical"
+    android:layout_gravity="center">
+
+    <EditText
+        android:singleLine="true"
+        android:id="@+id/nickname"
+        android:hint="닉네임(상호명)"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:gravity="center_vertical"
+        android:textSize="16sp"
+        android:background="@drawable/inputbox_selector"
+        android:layout_marginTop="90px"
+        style="@style/RegisterMargins" />
+
+    <EditText
+        android:imeOptions="actionDone"
+        android:id="@+id/address"
+        android:hint="배송지 주소"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:gravity="center_vertical"
+        android:textSize="16sp"
+        android:background="@drawable/inputbox_selector"
+        style="@style/RegisterMargins"
+        android:layout_marginBottom="20px"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginLeft="150px"
+        android:layout_marginRight="150px">
+        <Button
+            android:id="@+id/confirm"
+            android:layout_width="0px"
+            android:layout_weight="1"
+            android:layout_height="40dp"
+            android:background="@drawable/cart_button_selector"
+            android:textColor="@color/White"
+            android:text="정보 수정"
+            android:textSize="16sp"
+            android:layout_marginRight="10px"
+            android:textStyle="bold"
+            android:tag="B"
+            android:layout_marginBottom="90px"/>
+        <Button
+            android:id="@+id/cancel"
+            android:layout_marginLeft="10px"
+            android:layout_width="0px"
+            android:layout_weight="1"
+            android:layout_height="40dp"
+            android:background="@drawable/button_selector"
+            android:textColor="@color/White"
+            android:text="닫기"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:tag="B"
+
+            android:layout_marginBottom="90px"/>
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="220px"
+    android:background="@color/White"
+    android:layout_marginBottom="15px">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+        <TextView
+            android:textColor="@color/Black"
+            android:id="@+id/store_name"
+            android:layout_width="0px"
+            android:layout_height="210px"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textSize="40px"
+            android:tag="B" />
+
+        <Button
+            android:id="@+id/request"
+            android:textSize="40px"
+            android:text="승인요청"
+            android:textColor="@color/White"
+            android:tag="B"
+            android:layout_width="220px"
+            android:layout_height="210px"
+            android:background="@drawable/button_selector" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="210px"
+        android:layout_marginRight="220px"
+        android:id="@+id/blocked"
+        android:background="#BBF1F1F1"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2px"
+        android:layout_marginTop="218px"
+        android:background="#F1F1F1"/>
+
+</RelativeLayout>

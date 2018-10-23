@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="0px"
+        android:layout_weight="0.1"
+        android:id="@+id/title"
+        android:textColor="@color/Black"
+        android:textSize="24sp"
+        android:text="제목입력"
+        android:gravity="center"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:textColor="@color/Black"
+            android:textSize="16sp"
+            android:text="작성일 : "
+            android:gravity="right"
+            android:layout_width="0px"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/add_time"
+            android:textSize="16sp"
+            android:text="2018-00-00 00:00:00"
+            android:textColor="@color/Black"/>
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0px"
+        android:layout_weight="1"
+        android:layout_marginTop="10px">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textSize="18sp"
+            android:id="@+id/content"
+            android:text="내용내용내용내용"
+            android:textColor="@color/Black"
+            android:padding="15px"/>
+
+    </ScrollView>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="0px"
+        android:layout_weight="0.1"
+        android:background="@drawable/cart_button_selector"
+        android:id="@+id/confirm"
+        android:textColor="@color/White"
+        android:text="확인"
+        android:textSize="50px"/>
+
+</LinearLayout>

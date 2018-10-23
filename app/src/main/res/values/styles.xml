@@ -1,0 +1,36 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:statusBarColor">@color/themeSub</item>
+    </style>
+
+    <style name="SpotsDialog" parent="android:Theme.DeviceDefault.Dialog">
+        <item name="DialogTitleAppearance">@android:style/TextAppearance.Medium</item>
+        <item name="DialogSpotColor">@android:color/holo_orange_dark</item>
+        <item name="DialogSpotCount">5</item>
+        <item name="DialogTitleText">Loading...</item>
+    </style>
+
+    <style name="RegisterMargins">
+        <item name="android:layout_marginLeft">150px</item>
+        <item name="android:layout_marginRight">150px</item>
+        <item name="android:layout_marginBottom">20px</item>
+        <item name="android:paddingRight">30px</item>
+        <item name="android:paddingLeft">30px</item>
+    </style>
+
+    <style name="OrderList">
+        <item name="android:textSize">35px</item>
+        <item name="android:textColor">@color/Black</item>
+        <item name="android:padding">5px</item>
+    </style>
+
+    <style name="Toolbar.TitleText" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
+        <item name="android:textSize">17sp</item>
+    </style>
+</resources>

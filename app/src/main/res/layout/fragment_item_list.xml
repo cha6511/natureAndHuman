@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".Fragments.ItemListFragment">
+<android.support.v4.widget.SwipeRefreshLayout
+    android:id="@+id/refreshLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <android.support.v7.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/list"
+        android:padding="5dp"/>
+</android.support.v4.widget.SwipeRefreshLayout>
+    <ru.dimorinny.floatingtextbutton.FloatingTextButton
+        android:id="@+id/action_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|right"
+        android:layout_marginRight="30px"
+        android:layout_marginBottom="30px"
+        android:textSize="30px"
+        app:floating_background_color="@color/themeSub"
+        app:floating_left_icon="@drawable/ic_shopping_cart_white_24dp"
+        app:floating_title="0"
+        app:floating_title_color="@android:color/white" />
+</FrameLayout>

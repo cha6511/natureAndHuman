@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RegisterActivity"
+    android:padding="20px"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:background="@color/themeBackground">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="회원가입"
+        android:gravity="center"
+        android:layout_marginBottom="90px"
+        android:textColor="@color/White"
+        android:textStyle="bold"
+        android:tag="B"
+        android:textSize="60px"/>
+
+
+    <EditText
+        android:id="@+id/email"
+        android:hint="Email"
+        android:layout_width="match_parent"
+        android:layout_height="120px"
+        android:gravity="center_vertical"
+        android:textSize="40px"
+        android:inputType="textEmailAddress"
+        android:background="@drawable/inputbox_selector"
+        style="@style/RegisterMargins" />
+
+
+    <Button
+        android:id="@+id/get_auth"
+        android:layout_width="match_parent"
+        android:layout_height="120px"
+        android:background="@drawable/button_selector"
+        android:textColor="@color/White"
+        android:text="인증번호 받기"
+        android:textSize="40px"
+        android:textStyle="bold"
+        android:tag="B"
+        style="@style/RegisterMargins" />
+
+    <EditText
+        android:id="@+id/email_auth_number"
+        android:hint="인증번호 입력"
+        android:layout_width="match_parent"
+        android:layout_height="120px"
+        android:gravity="center_vertical"
+        android:textSize="40px"
+        android:inputType="number"
+        android:background="@drawable/inputbox_selector"
+        style="@style/RegisterMargins" />
+
+    <EditText
+        android:id="@+id/password"
+        android:hint="비밀번호"
+        android:layout_width="match_parent"
+        android:layout_height="120px"
+        android:gravity="center_vertical"
+        android:textSize="40px"
+        android:background="@drawable/inputbox_selector"
+        android:inputType="textPassword"
+        style="@style/RegisterMargins" />
+
+    <EditText
+        android:id="@+id/password_confirm"
+        android:hint="비밀번호 확인"
+        android:layout_width="match_parent"
+        android:layout_height="120px"
+        android:gravity="center_vertical"
+        android:textSize="40px"
+        android:background="@drawable/inputbox_selector"
+        android:inputType="textPassword"
+        style="@style/RegisterMargins" />
+
+    <EditText
+        android:id="@+id/nickname"
+        android:hint="닉네임(상호명)"
+        android:layout_width="match_parent"
+        android:layout_height="120px"
+        android:gravity="center_vertical"
+        android:textSize="40px"
+        android:background="@drawable/inputbox_selector"
+        style="@style/RegisterMargins" />
+
+    <EditText
+        android:id="@+id/address"
+        android:hint="배송지 주소"
+        android:layout_width="match_parent"
+        android:layout_height="120px"
+        android:gravity="center_vertical"
+        android:textSize="40px"
+        android:background="@drawable/inputbox_selector"
+        style="@style/RegisterMargins"
+        android:layout_marginBottom="90px"/>
+
+    <Button
+        android:enabled="false"
+        android:id="@+id/register"
+        android:layout_width="match_parent"
+        android:layout_height="120px"
+        android:background="@drawable/button_selector"
+        android:textColor="@color/White"
+        android:text="회원가입"
+        android:textSize="40px"
+        android:textStyle="bold"
+        android:tag="B"
+        style="@style/RegisterMargins"
+        android:layout_marginBottom="40px"/>
+</LinearLayout>

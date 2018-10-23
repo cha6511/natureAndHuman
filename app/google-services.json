@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "910894692007",
+    "firebase_url": "https://customerorderapp-b88dd.firebaseio.com",
+    "project_id": "customerorderapp-b88dd",
+    "storage_bucket": "customerorderapp-b88dd.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:910894692007:android:75c4be71433c4b08",
+        "android_client_info": {
+          "package_name": "human.nature.customerorderapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "910894692007-mnr8usvfammbfe7qcac62b26tqhp1ruv.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "human.nature.customerorderapp",
+            "certificate_hash": "6e9bda6ce5be41487ba4d14a2deab19071231278"
+          }
+        },
+        {
+          "client_id": "910894692007-t7p40p8udma35arkeulhdj7kq0asm1bn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyATENnlhjd_IVcV6vEVIt54b666aSrpJpE"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "910894692007-t7p40p8udma35arkeulhdj7kq0asm1bn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

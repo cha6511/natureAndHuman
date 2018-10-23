@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Fragments.NotificationFragment">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingTop="10px"
+        android:paddingBottom="10px"
+        android:paddingLeft="15px"
+        android:paddingRight="15px">
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="0px"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
+            android:text="공지사항"
+            android:gravity="center"
+            android:textColor="@color/Black"
+            android:textSize="50px" />
+        <View
+            android:layout_width="2px"
+            android:layout_height="match_parent"
+            android:background="#F1F1F1"/>
+        <TextView
+            android:id="@+id/add_time"
+            android:layout_width="0px"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.9"
+            android:gravity="center"
+            android:text="일시"
+            android:textColor="@color/Black"
+            android:textSize="50px" />
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2px"
+        android:layout_marginTop="10px"
+        android:background="#F1F1F1" />
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/swipeRefreshLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/noti_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+    </android.support.v4.widget.SwipeRefreshLayout>
+</LinearLayout>
