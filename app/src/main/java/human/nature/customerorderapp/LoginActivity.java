@@ -140,6 +140,8 @@ public class LoginActivity extends AppCompatActivity {
             mPasswordView.requestFocus();
         }
 
+        mPasswordView.setText("123456");
+        mEmailSignInButton.performClick();
 
         AutoLayout.setResizeView(this);
     }

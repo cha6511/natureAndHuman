@@ -10,17 +10,18 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 
 import human.nature.customerorderapp.AutoLayout;
 import human.nature.customerorderapp.ListData.OrderData;
 import human.nature.customerorderapp.R;
 
 public class OrderListAdapter extends RecyclerView.Adapter<OrderListAdapter.Holder> {
-    ArrayList<OrderData> datas = new ArrayList<>();
+    LinkedList<OrderData> datas = new LinkedList<>();
     View.OnClickListener onClickListener;
     Context context;
 
-    public OrderListAdapter(Context context, ArrayList<OrderData> datas, View.OnClickListener onClickListener) {
+    public OrderListAdapter(Context context, LinkedList<OrderData> datas, View.OnClickListener onClickListener) {
         this.context = context;
         this.datas = datas;
         this.onClickListener = onClickListener;

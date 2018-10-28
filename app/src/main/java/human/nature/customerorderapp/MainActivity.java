@@ -75,10 +75,35 @@ public class MainActivity extends AppCompatActivity {
         tabs.setShouldExpand(true);
         tabs.setTextSize(45);
         tabs.setViewPager(pager);
+//        pager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+//            @Override
+//            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+//                if(position == 1){
+//                    Events.Msg msg = new Events.Msg(Events.REFRESH_ORDER_LIST);
+//                    GlobalBus.getBus().post(msg);
+//                }
+//            }
+//
+//            @Override
+//            public void onPageSelected(int position) {
+//                if(position == 1){
+//                    Events.Msg msg = new Events.Msg(Events.REFRESH_ORDER_LIST);
+//                    GlobalBus.getBus().post(msg);
+//                }
+//            }
+//
+//            @Override
+//            public void onPageScrollStateChanged(int state) {
+//
+//            }
+//        });
         tabs.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-
+                if(position == 1){
+                    Events.Msg msg = new Events.Msg(Events.REFRESH_ORDER_LIST);
+                    GlobalBus.getBus().post(msg);
+                }
             }
 
             @Override
