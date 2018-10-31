@@ -220,6 +220,10 @@ public class ItemListFragment extends Fragment implements View.OnClickListener, 
                 list.findViewHolderForLayoutPosition(pos).itemView.findViewById(R.id.item_amt).performClick();
                 fab.setTitle(String.valueOf(staticDatas.cartData.size()));
                 break;
+
+            case R.id.item_option:
+                list.findViewHolderForLayoutPosition(pos).itemView.findViewById(R.id.item_amt).requestFocus();
+                break;
         }
     }
 
@@ -333,6 +337,7 @@ public class ItemListFragment extends Fragment implements View.OnClickListener, 
     }
 
 
+
     @Override
     public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
         int pos = (int)adapterView.getTag();
@@ -341,6 +346,7 @@ public class ItemListFragment extends Fragment implements View.OnClickListener, 
         data.setPrice(String.valueOf(Integer.parseInt(data.getOriginPrice()) + optionPrice));
         data.setOption(String.valueOf(adapterView.getItemAtPosition(i)));
         data.setOption_no(data.getOptions().get(i).getOption_no());
+        list.findViewHolderForLayoutPosition(pos).itemView.findViewById(R.id.item_amt).requestFocus();
     }
     @Override
     public void onNothingSelected(AdapterView<?> adapterView) {
@@ -350,6 +356,7 @@ public class ItemListFragment extends Fragment implements View.OnClickListener, 
         data.setPrice(String.valueOf(Integer.parseInt(data.getOriginPrice()) + optionPrice));
         data.setOption(String.valueOf(adapterView.getItemAtPosition(0)));
         data.setOption_no(data.getOptions().get(0).getOption_no());
+//        list.findViewHolderForLayoutPosition(pos).itemView.findViewById(R.id.item_amt).requestFocus();
     }
 
 

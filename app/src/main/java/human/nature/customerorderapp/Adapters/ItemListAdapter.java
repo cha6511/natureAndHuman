@@ -6,6 +6,7 @@ import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.text.Editable;
+import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -25,6 +26,7 @@ import com.bumptech.glide.request.RequestOptions;
 import java.util.ArrayList;
 
 import human.nature.customerorderapp.AutoLayout;
+import human.nature.customerorderapp.Fragments.CustomSpinner;
 import human.nature.customerorderapp.ListData.ItemListData;
 import human.nature.customerorderapp.R;
 
@@ -56,6 +58,7 @@ public class ItemListAdapter extends RecyclerView.Adapter<ItemListAdapter.Holder
         return new Holder(v);
     }
 
+    @SuppressLint("DefaultLocale")
     @Override
     public void onBindViewHolder(@NonNull final Holder holder, final int position) {
         final ItemListData data = datas.get(position);
@@ -76,6 +79,7 @@ public class ItemListAdapter extends RecyclerView.Adapter<ItemListAdapter.Holder
 //        }
         holder.item_option.setTag(position);
         holder.item_option.setOnItemSelectedListener(onItemSelectedListener);
+//        holder.item_option.setOnClickListener(onClickListener);
 
         holder.increase.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -88,7 +92,7 @@ public class ItemListAdapter extends RecyclerView.Adapter<ItemListAdapter.Holder
         holder.decrease.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(! holder.amt.getText().toString().equals("0")){
+                if(! holder.amt.getText().toString().equals("0") || !TextUtils.isEmpty(holder.amt.getText().toString())){
                     data.setAmt(String.valueOf(Integer.parseInt(data.getAmt()) -1));
                     holder.amt.setText(data.getAmt());
                 } else{
@@ -157,7 +161,7 @@ public class ItemListAdapter extends RecyclerView.Adapter<ItemListAdapter.Holder
         ImageView item_img;
         TextView item_name;
         TextView item_price;
-        Spinner item_option;
+        CustomSpinner item_option;
 
         TextView increase;
         EditText amt;
