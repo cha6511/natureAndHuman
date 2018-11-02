@@ -97,6 +97,16 @@
         android:gravity="center_vertical"
         android:textSize="40px"
         android:background="@drawable/inputbox_selector"
+        style="@style/RegisterMargins" />
+
+    <EditText
+        android:id="@+id/contact"
+        android:hint="연락처 (숫자만 입력)"
+        android:layout_width="match_parent"
+        android:layout_height="120px"
+        android:gravity="center_vertical"
+        android:textSize="40px"
+        android:background="@drawable/inputbox_selector"
         style="@style/RegisterMargins"
         android:layout_marginBottom="90px"/>
 

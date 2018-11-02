@@ -30,6 +30,18 @@
         style="@style/RegisterMargins"
         android:layout_marginBottom="20px"/>
 
+    <EditText
+        android:imeOptions="actionDone"
+        android:id="@+id/contact"
+        android:hint="연락처"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:gravity="center_vertical"
+        android:textSize="16sp"
+        android:background="@drawable/inputbox_selector"
+        style="@style/RegisterMargins"
+        android:layout_marginBottom="20px"/>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
