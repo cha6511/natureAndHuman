@@ -1,6 +1,7 @@
 package human.nature.customerorderapp;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 
 import human.nature.customerorderapp.ListData.CartData;
 import human.nature.customerorderapp.ListData.ItemListData;
@@ -10,7 +11,7 @@ public class StaticDatas {
     public static StaticDatas staticDatas;
 
     public static ArrayList<ItemListData> itemListData;
-    public static ArrayList<OrderData> orderData;
+    public static LinkedList<OrderData> orderData;
     public static ArrayList<CartData> cartData;
     public static final String baseUrl = "https://app.thehandsgift.com:3000/";
     public static String s_no;
@@ -21,7 +22,7 @@ public class StaticDatas {
         if(staticDatas == null){
             staticDatas = new StaticDatas();
             itemListData = new ArrayList<>();
-            orderData = new ArrayList<>();
+            orderData = new LinkedList<>();
             cartData = new ArrayList<>();
         }
         return staticDatas;

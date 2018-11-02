@@ -182,8 +182,8 @@ public class ItemListFragment extends Fragment implements View.OnClickListener, 
                     public void asyncDone(String result) {
                         if(SUCCESS.equals(result)){
                             Toast.makeText(getContext(), "주문되었습니다.", Toast.LENGTH_SHORT).show();
-                            data.setAmt("0");
-                            onRefresh();
+                            list.findViewHolderForLayoutPosition(pos).itemView.findViewById(R.id.item_amt).performClick();
+//                            onRefresh();
                         } else if("CNT NOT ENOUGH".equals(result)){
                             Toast.makeText(getContext(), "재고가 부족합니다.\n재고 수량을 다시 확인해주세요.", Toast.LENGTH_SHORT).show();
                         } else{
@@ -217,7 +217,12 @@ public class ItemListFragment extends Fragment implements View.OnClickListener, 
                         data.getOption_no()
                 ));
                 Toast.makeText(getContext(), "장바구니에 추가되었습니다.", Toast.LENGTH_SHORT).show();
+                list.findViewHolderForLayoutPosition(pos).itemView.findViewById(R.id.item_amt).performClick();
                 fab.setTitle(String.valueOf(staticDatas.cartData.size()));
+                break;
+
+            case R.id.item_option:
+                list.findViewHolderForLayoutPosition(pos).itemView.findViewById(R.id.item_amt).requestFocus();
                 break;
         }
     }
@@ -230,7 +235,11 @@ public class ItemListFragment extends Fragment implements View.OnClickListener, 
             staticDatas.itemListData.get(pos).setAmt(textView.getText().toString());
             adapter.notifyDataSetChanged();
         } else if(i == EditorInfo.IME_ACTION_NEXT){
-            textView.setText(String.valueOf(Integer.parseInt(textView.getText().toString())));
+            try {
+                textView.setText(String.valueOf(Integer.parseInt(textView.getText().toString())));
+            } catch (Exception e){
+                textView.setText("0");
+            }
             staticDatas.itemListData.get(pos).setAmt(textView.getText().toString());
             adapter.notifyDataSetChanged();
         }
@@ -327,6 +336,8 @@ public class ItemListFragment extends Fragment implements View.OnClickListener, 
         refreshList.execute(String.valueOf(page), staticDatas.s_no);
     }
 
+
+
     @Override
     public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
         int pos = (int)adapterView.getTag();
@@ -335,9 +346,8 @@ public class ItemListFragment extends Fragment implements View.OnClickListener, 
         data.setPrice(String.valueOf(Integer.parseInt(data.getOriginPrice()) + optionPrice));
         data.setOption(String.valueOf(adapterView.getItemAtPosition(i)));
         data.setOption_no(data.getOptions().get(i).getOption_no());
-//        adapter.notifyDataSetChanged();
+        list.findViewHolderForLayoutPosition(pos).itemView.findViewById(R.id.item_amt).requestFocus();
     }
-
     @Override
     public void onNothingSelected(AdapterView<?> adapterView) {
         int pos = (int)adapterView.getTag();
@@ -346,6 +356,7 @@ public class ItemListFragment extends Fragment implements View.OnClickListener, 
         data.setPrice(String.valueOf(Integer.parseInt(data.getOriginPrice()) + optionPrice));
         data.setOption(String.valueOf(adapterView.getItemAtPosition(0)));
         data.setOption_no(data.getOptions().get(0).getOption_no());
+//        list.findViewHolderForLayoutPosition(pos).itemView.findViewById(R.id.item_amt).requestFocus();
     }
 
 

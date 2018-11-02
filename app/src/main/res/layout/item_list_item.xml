@@ -53,7 +53,7 @@
                     android:textColor="#000000"
                     android:textSize="40px" />
 
-                <Spinner
+                <human.nature.customerorderapp.Fragments.CustomSpinner
                     android:id="@+id/item_option"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />

@@ -43,7 +43,7 @@ public class CartListAdapter extends RecyclerView.Adapter<CartListAdapter.Holder
         CartData data = datas.get(position);
         Glide.with(context).load(data.getImg_url()).apply(new RequestOptions().error(R.drawable.ic_launcher_foreground)).into(holder.img);
         holder.item_desc.setText(data.getItem_name() + "\n" + data.getItem_option());
-        holder.amt.setText(data.getItem_amt());
+        holder.amt.setText(String.format("%,d", Integer.parseInt(data.getItem_amt())));
         holder.price.setText(String.format("%,d", Integer.parseInt(data.getItem_price()) * Integer.parseInt(data.getItem_amt())));
         holder.delete.setTag(position);
         holder.delete.setOnClickListener(onClickListener);

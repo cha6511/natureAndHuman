@@ -168,6 +168,7 @@ public class CartDialog extends Dialog implements View.OnClickListener {
         @Override
         protected String doInBackground(String... strings) {
             OkHttpClient client = new OkHttpClient();
+            Log.d("order info", strings[0] + "\n" + strings[1] + "\n" + strings[2] + "\n" + strings[3] + "\n" + strings[5] + "\n" + strings[4] + "\n" + strings[6]);
             FormBody.Builder formBodyBuilder = new FormBody.Builder();
             formBodyBuilder.add("u_no", spf.getUserSeq());
             formBodyBuilder.add("s_no", staticDatas.s_no);

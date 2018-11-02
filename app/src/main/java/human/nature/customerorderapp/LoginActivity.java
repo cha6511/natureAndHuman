@@ -140,7 +140,6 @@ public class LoginActivity extends AppCompatActivity {
             mPasswordView.requestFocus();
         }
 
-
         AutoLayout.setResizeView(this);
     }
 

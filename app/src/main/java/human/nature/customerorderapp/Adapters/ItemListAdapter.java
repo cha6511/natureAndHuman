@@ -1,9 +1,14 @@
 package human.nature.customerorderapp.Adapters;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
+import android.text.Editable;
+import android.text.TextUtils;
+import android.text.TextWatcher;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,6 +26,7 @@ import com.bumptech.glide.request.RequestOptions;
 import java.util.ArrayList;
 
 import human.nature.customerorderapp.AutoLayout;
+import human.nature.customerorderapp.Fragments.CustomSpinner;
 import human.nature.customerorderapp.ListData.ItemListData;
 import human.nature.customerorderapp.R;
 
@@ -52,6 +58,7 @@ public class ItemListAdapter extends RecyclerView.Adapter<ItemListAdapter.Holder
         return new Holder(v);
     }
 
+    @SuppressLint("DefaultLocale")
     @Override
     public void onBindViewHolder(@NonNull final Holder holder, final int position) {
         final ItemListData data = datas.get(position);
@@ -67,24 +74,75 @@ public class ItemListAdapter extends RecyclerView.Adapter<ItemListAdapter.Holder
         holder.item_price.setText("판매가격 : " + String.format("%,d", Integer.parseInt(data.getOriginPrice()) )  );
 
 
-        if(data.isNeedRefreshAdapter()) {
+//        if(data.isNeedRefreshAdapter()) {
             holder.item_option.setAdapter(optionsAdapter);
-        }
+//        }
         holder.item_option.setTag(position);
         holder.item_option.setOnItemSelectedListener(onItemSelectedListener);
+//        holder.item_option.setOnClickListener(onClickListener);
 
-        holder.increase.setOnClickListener(onClickListener);
+        holder.increase.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                data.setAmt(String.valueOf(Integer.parseInt(data.getAmt()) +1));
+                holder.amt.setText(data.getAmt());
+            }
+        });
         holder.increase.setTag(position);
-        holder.decrease.setOnClickListener(onClickListener);
+        holder.decrease.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(! holder.amt.getText().toString().equals("0") || !TextUtils.isEmpty(holder.amt.getText().toString())){
+                    data.setAmt(String.valueOf(Integer.parseInt(data.getAmt()) -1));
+                    holder.amt.setText(data.getAmt());
+                } else{
+                    holder.amt.setText(data.getAmt());
+                }
+            }
+        });
         holder.decrease.setTag(position);
+
+
         holder.amt.setText(data.getAmt());
         holder.amt.setTag(position);
-        holder.amt.setOnEditorActionListener(onEditorActionListener);
+//        holder.amt.setOnEditorActionListener(onEditorActionListener);
+        holder.amt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ((EditText)view).getText().clear();
+            }
+        });
+        holder.amt.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+//                holder.amt.setText("");
+            }
+
+            @SuppressLint("DefaultLocale")
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                try {
+                    data.setAmt(charSequence.toString());
+//                    data.setPrice(String.valueOf(Integer.parseInt(charSequence.toString()) * Integer.parseInt(data.getPrice())));
+                    holder.total_price.setText(String.format("%,d", Integer.parseInt(data.getAmt()) * Integer.parseInt(data.getPrice())));
+                } catch (Exception e){
+                    Log.d("amt, price zero", data.getAmt() + " / " + data.getPrice());
+                    holder.total_price.setText("0");
+                    data.setAmt("0");
+//                    data.setPrice("0");
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+//                data.setPrice(holder.total_price.getText().toString());
+            }
+        });
 
         try {
             holder.total_price.setText(String.format("%,d", Integer.parseInt(data.getPrice()) * Integer.parseInt(data.getAmt())));
         } catch (Exception e){
-            holder.total_price.setText(String.format("%,d", Integer.parseInt(data.getPrice()) * 0));
+            holder.total_price.setHint("0");
         }
 
         holder.order.setOnClickListener(onClickListener);
@@ -103,7 +161,7 @@ public class ItemListAdapter extends RecyclerView.Adapter<ItemListAdapter.Holder
         ImageView item_img;
         TextView item_name;
         TextView item_price;
-        Spinner item_option;
+        CustomSpinner item_option;
 
         TextView increase;
         EditText amt;

@@ -17,6 +17,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 import org.json.JSONArray;
@@ -34,6 +35,7 @@ import human.nature.customerorderapp.Adapters.OrderListAdapter;
 import human.nature.customerorderapp.AppSharedPreference;
 import human.nature.customerorderapp.AutoLayout;
 import human.nature.customerorderapp.EventBus.Events;
+import human.nature.customerorderapp.EventBus.GlobalBus;
 import human.nature.customerorderapp.Interface.AsyncDone;
 import human.nature.customerorderapp.ListData.OrderData;
 import human.nature.customerorderapp.R;
@@ -236,7 +238,7 @@ public class OrderListFragment extends Fragment implements View.OnClickListener,
                 JSONArray innerArray = resultArray.getJSONArray(0);
                 for (int i = 0; i < innerArray.length(); i++) {
                     JSONObject data = innerArray.getJSONObject(i);
-                    staticDatas.orderData.add(new OrderData(
+                    staticDatas.orderData.addFirst(new OrderData(
                             data.getString("no"),
                             data.getString("total_price"),
                             data.getString("store_no"),
@@ -267,12 +269,14 @@ public class OrderListFragment extends Fragment implements View.OnClickListener,
     @Override
     public void onResume() {
         super.onResume();
+        GlobalBus.getBus().register(this);
         Log.d("orderList onResume", "resume");
     }
 
     @Override
     public void onPause() {
         super.onPause();
+        GlobalBus.getBus().unregister(this);
         Log.d("orderList onPause", "pause");
     }
 

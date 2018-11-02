@@ -25,7 +25,7 @@ public class ItemListData {
         this.price = price;
         this.originPrice = originPrice;
         this.options = options;
-        this.amt = "0";
+        this.amt = "";
         this.needRefreshAdapter = true;
     }
 
