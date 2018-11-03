@@ -47,6 +47,8 @@ public class RegisterActivity extends AppCompatActivity {
     EditText emailAuthNumber;
     @BindView(R.id.address)
     EditText address;
+    @BindView(R.id.contact)
+    EditText contact;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -97,9 +99,12 @@ public class RegisterActivity extends AppCompatActivity {
             Toast.makeText(RegisterActivity.this, "비밀번호는 20자 이하입니다.", Toast.LENGTH_SHORT).show();
         } else if (nickname.getText().toString().length() > 20) {
             Toast.makeText(RegisterActivity.this, "닉네임(상호명)은 20자 이하입니다.", Toast.LENGTH_SHORT).show();
-        } else if (address.getText().toString().length() > 45){
+        } else if (address.getText().toString().length() > 45) {
             Toast.makeText(RegisterActivity.this, "배송지 주소는 45자 이하입니다.", Toast.LENGTH_SHORT).show();
-        } else {
+        } else if (contact.getText().toString().length() > 15){
+            Toast.makeText(RegisterActivity.this, "연락처는 15자 이하입니다.", Toast.LENGTH_SHORT);
+        }
+        else {
             if (spf.getEmailAuthNumber().equals(emailAuthNumber.getText().toString())) {
                 Register register = new Register(this, new AsyncDone() {
                     @Override
@@ -119,7 +124,8 @@ public class RegisterActivity extends AppCompatActivity {
                         TextUtils.isEmpty(spf.getToken()) ? FirebaseInstanceId.getInstance().getToken() : spf.getToken(),
                         nickname.getText().toString(),
                         address.getText().toString(),
-                        " ");
+                        " ",
+                        contact.getText().toString());
             } else {
                 Toast.makeText(RegisterActivity.this, "인증번호가 틀렸습니다. 다시 확인해주세요.", Toast.LENGTH_SHORT).show();
             }
@@ -234,6 +240,7 @@ public class RegisterActivity extends AppCompatActivity {
             formBodyBuilder.add("alias", strings[3]);
             formBodyBuilder.add("addr", strings[4]);
             formBodyBuilder.add("addr_detail", strings[5]);
+            formBodyBuilder.add("tel", strings[6]);
             FormBody formBody = formBodyBuilder.build();
 
             try {

@@ -33,7 +33,7 @@ import static human.nature.customerorderapp.EventBus.Events.FAILED;
 import static human.nature.customerorderapp.EventBus.Events.SUCCESS;
 
 public class EditInfoDialog extends Dialog {
-    EditText alias, addr;
+    EditText alias, addr, contact;
     Button confirm, close;
     Context context;
 
@@ -52,6 +52,7 @@ public class EditInfoDialog extends Dialog {
 
         alias = findViewById(R.id.nickname);
         addr = findViewById(R.id.address);
+        contact = findViewById(R.id.contact);
 
         confirm = findViewById(R.id.confirm);
         confirm.setOnClickListener(new View.OnClickListener() {
@@ -71,7 +72,8 @@ public class EditInfoDialog extends Dialog {
                 editInfo.execute(
                         spf.getUserSeq(),
                         alias.getText().toString(),
-                        addr.getText().toString()
+                        addr.getText().toString(),
+                        contact.getText().toString()
                 );
             }
         });
@@ -118,7 +120,8 @@ public class EditInfoDialog extends Dialog {
                     "u_no=" + strings[0] +
                     "&alias=" + strings[1] +
                     "&addr=" + strings[2] +
-                    "&addr_detail=" + " ");
+                    "&addr_detail=" + " " +
+                    "&tel=" + strings[3]);
             try {
                 Request request = builder.build();
                 Response response = client.newCall(request).execute();
